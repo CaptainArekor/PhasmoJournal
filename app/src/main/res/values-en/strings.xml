@@ -1,5 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">PhasmoJournal</string>
     <string name="title_guess">Guess</string>
     <string name="title_journal">Journal</string>
     <string name="title_settings">Settings</string>
