@@ -2,5 +2,8 @@
 <resources>
     <string name="title_guess">Indices</string>
     <string name="title_journal">Journal</string>
-    <string name="title_settings">Parametres</string>
+    <string name="title_settings">Français</string>
+
+    <string name="locale_display_en">Anglais</string>
+    <string name="locale_display_fr">Francais</string>
 </resources>

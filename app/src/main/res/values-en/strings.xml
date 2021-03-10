@@ -3,4 +3,7 @@
     <string name="title_guess">Guess</string>
     <string name="title_journal">Journal</string>
     <string name="title_settings">Settings</string>
+
+    <string name="locale_display_en">English</string>
+    <string name="locale_display_fr">French</string>
 </resources>
