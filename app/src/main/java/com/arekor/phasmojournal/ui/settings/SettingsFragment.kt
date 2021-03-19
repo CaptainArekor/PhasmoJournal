@@ -40,7 +40,6 @@ class SettingsFragment : Fragment() {
         val localeSpinner: Spinner = root.findViewById(R.id.settings_locale_spinner)
         localeSpinner.adapter = localeAdapter
         val defaultText = SettingUtils.getDisplayLanguage(requireContext(), requireContext().resources.configuration.locales.get(0))
-        val position = localeAdapter.getPosition(defaultText)
         localeSpinner.setSelection(localeAdapter.getPosition(defaultText))
         localeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(
