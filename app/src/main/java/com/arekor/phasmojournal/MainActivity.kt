@@ -42,11 +42,11 @@ class MainActivity : AppCompatActivity(), FragmentBaseListener {
         }
     }
 
-    fun getAppVersion() : String {
+    override fun getAppVersion() : String {
         return try {
             val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
             val version = pInfo.versionName
-            version
+            "V$version"
         } catch (e: PackageManager.NameNotFoundException) {
             ""
         }

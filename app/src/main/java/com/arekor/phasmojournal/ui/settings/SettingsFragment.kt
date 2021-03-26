@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
+import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.arekor.phasmojournal.MainActivity
@@ -60,7 +61,7 @@ class SettingsFragment : FragmentBase<FragmentBaseListener>() {
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
-
+        root.findViewById<TextView>(R.id.settings_version_display).text = listener?.getAppVersion()
         return root
     }
 
