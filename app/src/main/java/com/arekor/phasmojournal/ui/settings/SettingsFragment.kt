@@ -36,7 +36,7 @@ class SettingsFragment : FragmentBase<FragmentBaseListener>() {
         val localeList : Array<String> = currentActivity?.getLanguageList() ?: arrayOf()
         val localeAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
             requireContext(),
-            android.R.layout.simple_spinner_item,
+            R.layout.custom_spinner_item,
             localeList
         )
         val localeSpinner: Spinner = root.findViewById(R.id.settings_locale_spinner)
