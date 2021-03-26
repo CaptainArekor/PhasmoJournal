@@ -13,7 +13,7 @@ import com.arekor.phasmojournal.MainActivity
 import com.arekor.phasmojournal.R
 import com.arekor.phasmojournal.components.fragment.FragmentBase
 import com.arekor.phasmojournal.components.fragment.FragmentBaseListener
-import com.arekor.phasmojournal.utils.misc.SettingUtils
+import com.arekor.phasmojournal.utils.misc.LocaleUtils
 
 class SettingsFragment : FragmentBase<FragmentBaseListener>() {
 
@@ -41,7 +41,7 @@ class SettingsFragment : FragmentBase<FragmentBaseListener>() {
         )
         val localeSpinner: Spinner = root.findViewById(R.id.settings_locale_spinner)
         localeSpinner.adapter = localeAdapter
-        val defaultText = SettingUtils.getDisplayLanguage(requireContext(), requireContext().resources.configuration.locales.get(0))
+        val defaultText = LocaleUtils.getDisplayLanguage(requireContext(), requireContext().resources.configuration.locales.get(0))
         localeSpinner.setSelection(localeAdapter.getPosition(defaultText))
         localeSpinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
             override fun onItemSelected(

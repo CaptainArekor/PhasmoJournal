@@ -7,7 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.arekor.phasmojournal.components.fragment.FragmentBaseListener
-import com.arekor.phasmojournal.utils.misc.SettingUtils
+import com.arekor.phasmojournal.utils.misc.LocaleUtils
 import com.arekor.phasmojournal.utils.storage.SharedPreferencesUtils
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity(), FragmentBaseListener {
 
     override fun setLocale(locale_text: String, requireRestart: Boolean) {
         if(resources.configuration.locales.get(0).language != locale_text) {
-            SettingUtils.setLocale(this, locale_text)
+            LocaleUtils.setLocale(this, locale_text)
             if(requireRestart) {
                 restartActivity()
             }
@@ -58,5 +58,5 @@ class MainActivity : AppCompatActivity(), FragmentBaseListener {
         startActivity(intent)
     }
 
-    fun getLanguageList() : Array<String> = SettingUtils.getLanguageList(this)
+    fun getLanguageList() : Array<String> = LocaleUtils.getLanguageList(this)
 }

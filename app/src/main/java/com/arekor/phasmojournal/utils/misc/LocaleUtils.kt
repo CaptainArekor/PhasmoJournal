@@ -5,7 +5,7 @@ import com.arekor.phasmojournal.R
 import com.arekor.phasmojournal.utils.storage.SharedPreferencesUtils
 import java.util.*
 
-object SettingUtils {
+object LocaleUtils {
     fun getLanguageList(context: Context): Array<String> = arrayOf(
         context.getString(R.string.locale_display_en),
         context.getString(R.string.locale_display_fr)
