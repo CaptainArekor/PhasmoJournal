@@ -1,5 +1,7 @@
 package com.arekor.phasmojournal
 
+import android.content.pm.PackageInfo
+import android.content.pm.PackageManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -36,6 +38,16 @@ class MainActivity : AppCompatActivity() {
             if(requireRestart) {
                 restartActivity()
             }
+        }
+    }
+
+    fun getAppVersion() : String {
+        return try {
+            val pInfo: PackageInfo = packageManager.getPackageInfo(packageName, 0)
+            val version = pInfo.versionName
+            version
+        } catch (e: PackageManager.NameNotFoundException) {
+            ""
         }
     }
 
