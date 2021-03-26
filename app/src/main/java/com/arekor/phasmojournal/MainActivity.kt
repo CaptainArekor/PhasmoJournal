@@ -1,12 +1,13 @@
 package com.arekor.phasmojournal
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.arekor.phasmojournal.utils.misc.SettingUtils
 import com.arekor.phasmojournal.utils.storage.SharedPreferencesUtils
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadStoredLocale() {
-        setLocale(SharedPreferencesUtils.getLocalePreference(this))
+        setLocale(SharedPreferencesUtils.getLocalePreference(this), false)
     }
 
     private fun setNavigation() {
@@ -29,10 +30,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun getNavController() = findNavController(R.id.nav_host_fragment)
 
-    fun setLocale(locale_text: String) {
+    fun setLocale(locale_text: String, requireRestart: Boolean = true) {
         if(resources.configuration.locales.get(0).language != locale_text) {
             SettingUtils.setLocale(this, locale_text)
+            if(requireRestart) {
+                restartActivity()
+            }
         }
+    }
+
+    private fun restartActivity() {
+        val intent = intent
+        finish()
+        startActivity(intent)
     }
 
     fun getLanguageList() : Array<String> = SettingUtils.getLanguageList(this)
