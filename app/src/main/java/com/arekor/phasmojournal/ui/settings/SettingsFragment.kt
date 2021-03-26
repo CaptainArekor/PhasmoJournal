@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.arekor.phasmojournal.MainActivity
 import com.arekor.phasmojournal.R
+import com.arekor.phasmojournal.components.fragment.FragmentBase
+import com.arekor.phasmojournal.components.fragment.FragmentBaseListener
 import com.arekor.phasmojournal.utils.misc.SettingUtils
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : FragmentBase<FragmentBaseListener>() {
 
     private lateinit var settingsViewModel: SettingsViewModel
     private var currentActivity : MainActivity? = null
@@ -29,7 +31,7 @@ class SettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         settingsViewModel = ViewModelProvider(this).get(SettingsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_settings, container, false)
+        val root = inflater.inflate(fragmentLayout, container, false)
 
         val localeList : Array<String> = currentActivity?.getLanguageList() ?: arrayOf()
         val localeAdapter: ArrayAdapter<String> = ArrayAdapter<String>(
@@ -51,13 +53,16 @@ class SettingsFragment : Fragment() {
                 settingsViewModel.localeIndex = position
 
                 when(localeSpinner.selectedItem.toString()){
-                    getString(R.string.locale_display_en) -> {currentActivity?.setLocale(getString(R.string.locale_en))}
-                    getString(R.string.locale_display_fr) -> {currentActivity?.setLocale(getString(R.string.locale_fr))}
+                    getString(R.string.locale_display_en) -> {listener?.setLocale(getString(R.string.locale_en))}
+                    getString(R.string.locale_display_fr) -> {listener?.setLocale(getString(R.string.locale_fr))}
                 }
+
             }
             override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
 
         return root
     }
+
+    override val fragmentLayout: Int = R.layout.fragment_settings
 }
