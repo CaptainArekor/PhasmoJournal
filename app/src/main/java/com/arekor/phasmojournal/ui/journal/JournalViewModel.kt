@@ -1,10 +1,10 @@
-package com.arekor.phasmojournal.ui.dashboard
+package com.arekor.phasmojournal.ui.journal
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class DashboardViewModel : ViewModel() {
+class JournalViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is dashboard Fragment"

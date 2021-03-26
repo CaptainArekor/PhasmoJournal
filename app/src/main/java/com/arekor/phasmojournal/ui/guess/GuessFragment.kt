@@ -1,4 +1,4 @@
-package com.arekor.phasmojournal.ui.home
+package com.arekor.phasmojournal.ui.guess
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,20 +9,20 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.arekor.phasmojournal.R
 
-class HomeFragment : Fragment() {
+class GuessFragment : Fragment() {
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var guessViewModel: GuessViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-                ViewModelProvider(this).get(HomeViewModel::class.java)
+        guessViewModel =
+                ViewModelProvider(this).get(GuessViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_home, container, false)
         val textView: TextView = root.findViewById(R.id.text_home)
-        homeViewModel.text.observe(viewLifecycleOwner, {
+        guessViewModel.text.observe(viewLifecycleOwner, {
             textView.text = getString(R.string.locale_display_fr)
         })
         return root

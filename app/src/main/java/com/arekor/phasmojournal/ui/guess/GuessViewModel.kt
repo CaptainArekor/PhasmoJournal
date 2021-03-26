@@ -1,10 +1,10 @@
-package com.arekor.phasmojournal.ui.home
+package com.arekor.phasmojournal.ui.guess
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class HomeViewModel : ViewModel() {
+class GuessViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
         value = "This is home Fragment"

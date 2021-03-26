@@ -1,4 +1,4 @@
-package com.arekor.phasmojournal.ui.dashboard
+package com.arekor.phasmojournal.ui.journal
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,20 +10,20 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.arekor.phasmojournal.R
 
-class DashboardFragment : Fragment() {
+class JournalFragment : Fragment() {
 
-    private lateinit var dashboardViewModel: DashboardViewModel
+    private lateinit var journalViewModel: JournalViewModel
 
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(DashboardViewModel::class.java)
+        journalViewModel =
+                ViewModelProvider(this).get(JournalViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_dashboard, container, false)
         val textView: TextView = root.findViewById(R.id.text_dashboard)
-        dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
+        journalViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
